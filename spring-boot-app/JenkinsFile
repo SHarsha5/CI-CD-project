@@ -46,6 +46,7 @@ pipeline {
       }
     }
     stage('Update Deployment File') {
+        agent any 
         environment {
             GIT_REPO_NAME = "CI-CD-project"
             GIT_USER_NAME = "SHarsha5"
