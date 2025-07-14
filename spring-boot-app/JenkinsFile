@@ -9,6 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
+        sh 'git clone https://github.com/SHarsha5/CI-CD-project.git'
         //git branch: 'main', url: 'https://github.com/SHarsha5/CI-CD-project'
       }
     }
@@ -53,6 +54,7 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
+                    cd CI-CD-project
                     git config user.email "hs7420231@gmail.com"
                     git config user.name "SHarsha5"
                     BUILD_NUMBER=${BUILD_NUMBER}
